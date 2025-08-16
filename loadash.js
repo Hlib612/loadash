@@ -53,3 +53,19 @@ const userGreating = (event) => {
 };
 
 inputElement.addEventListener("input", _.debounce(userGreating, 850));
+
+
+
+const rangeInput = document.querySelector('.slider__input')
+const sliderImg = document.querySelector('.slider__image')
+console.log(Number(rangeInput.value));
+console.log(sliderImg.width);
+console.log(sliderImg.height);
+let inputValue = 0;
+const onInput = (event) =>{
+inputValue = Number(rangeInput.value);
+sliderImg.width = inputValue * 10;
+sliderImg.height = inputValue * 5;
+}
+
+rangeInput.addEventListener("input" , onInput);

@@ -1,0 +1,19 @@
+.slider {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.slider__input {
+    display: none;
+  width: 100%;
+}
+
+.slider__image {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+}
