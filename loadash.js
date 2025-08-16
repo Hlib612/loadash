@@ -54,18 +54,36 @@ const userGreating = (event) => {
 
 inputElement.addEventListener("input", _.debounce(userGreating, 850));
 
-
-
-const rangeInput = document.querySelector('.slider__input')
-const sliderImg = document.querySelector('.slider__image')
-console.log(Number(rangeInput.value));
-console.log(sliderImg.width);
-console.log(sliderImg.height);
+const rangeInput = document.querySelector(".slider__input");
+const sliderImg = document.querySelector(".slider__image");
+const stopButton = document.querySelector(".stop_button");
+// console.log(Number(rangeInput.value));
+// console.log(sliderImg.width);
+// console.log(sliderImg.height);
 let inputValue = 0;
-const onInput = (event) =>{
-inputValue = Number(rangeInput.value);
-sliderImg.width = inputValue * 10;
-sliderImg.height = inputValue * 5;
+const onInput = (event) => {
+  inputValue = Number(rangeInput.value);
+  sliderImg.width = inputValue * 10;
+  sliderImg.height = inputValue * 3;
+};
+
+rangeInput.addEventListener("input", _.debounce(onInput, 250));
+
+const movebaleBox = document.querySelector("#box");
+
+const onMouseMove = (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    movebaleBox.style.left = (mouseX - movebaleBox.clientWidth / 2) + 'px';
+    movebaleBox.style.top = (mouseY - movebaleBox.clientHeight / 2) + 'px';
+};
+
+
+
+const onStopButtonClick = (event) => {
+  // document.removeEventListener();
+  document.addEventListener("mousemove", _.throttle(onMouseMove, 250));
 }
 
-rangeInput.addEventListener("input" , onInput);
+stopButton.addEventListener("click", onStopButtonClick);

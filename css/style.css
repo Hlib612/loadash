@@ -8,7 +8,6 @@
 }
 
 .slider__input {
-    display: none;
   width: 100%;
 }
 
@@ -16,4 +15,15 @@
   display: block;
   margin: 20px auto;
   max-width: 100%;
+}
+
+#box {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+   transition: left 0.1s ease-out, top 0.1s ease-out;
+}
+.stop_button{
+  margin-top: 300px;
 }
